@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.ul`
   padding: 20px;
@@ -58,8 +58,8 @@ const Success = ({ values }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await axios.post(
-        "https://cakelaya.com/api/gift/getGifts",
+      const res = await publicRequest.post(
+        "gift/getGifts",
         values
       );
       setProducts(res.data);
@@ -85,7 +85,7 @@ const Success = ({ values }) => {
           );
         })}
       </Container>
-      <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
         <Button onClick={() => (window.location.href = "/gift")}>
           Start Again
         </Button>

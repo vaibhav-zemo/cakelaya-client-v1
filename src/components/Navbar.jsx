@@ -220,7 +220,7 @@ const Navbar = () => {
 
   const handleClick = () => {
     dispatch(logOut());
-    window.location.href = "https://cakelaya.com";
+    window.location.href = "https://cakelaya-client-v1.vercel.app/";
   };
 
   const handleClick2 = (e) => {

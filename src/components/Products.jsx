@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
-import axios from "axios";
 import { loadStart, loadSuccess } from "../redux/productRedux";
 import { useDispatch, useSelector } from "react-redux";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
   padding: 20px;
@@ -22,10 +22,8 @@ const Products = ({ cat, filters, sort }) => {
     const getProducts = async () => {
       try {
         dispatch(loadStart());
-        const res = await axios.get(
-          cat
-            ? `https://cakelaya.com/api/products?category=${cat}`
-            : "https://cakelaya.com/api/products"
+        const res = await publicRequest.get(
+          cat ? `products?category=${cat}` : "products"
         );
         setProducts(
           res.data.filter((item) => {
@@ -33,18 +31,16 @@ const Products = ({ cat, filters, sort }) => {
               return item.location[i] == city;
             }
           })
-        )
+        );
         dispatch(loadSuccess());
-      } catch (err) { }
+      } catch (err) {}
     };
     getProducts();
   }, [cat]);
 
   useEffect(() => {
     if (filters.size == "Quantity") {
-      setFilteredProducts(
-        products
-      )
+      setFilteredProducts(products);
       return;
     }
     cat &&
@@ -72,10 +68,14 @@ const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       {cat
-        ? filteredProducts.map((item) => <Product item={item} cat={cat} key={item.id} filters={filters} />)
+        ? filteredProducts.map((item) => (
+            <Product item={item} cat={cat} key={item.id} filters={filters} />
+          ))
         : products
-          .slice(0, products.length)
-          .map((item) => <Product item={item} cat={cat} key={item.id} filter={filters} />)}
+            .slice(0, products.length)
+            .map((item) => (
+              <Product item={item} cat={cat} key={item.id} filter={filters} />
+            ))}
     </Container>
   );
 };

@@ -144,7 +144,6 @@ export default function Header() {
   const [city, setCity] = useState("Sultanpur");
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
-  const [state, setState] = useState(city);
   const [icon, setIcon] = useState(true);
   const [navStatus, setNavStatus] = useState("navbar-container");
   const location = useLocation();
@@ -179,22 +178,9 @@ export default function Header() {
     setIsOpenSDD(!isOpenSDD);
   };
 
-  const handleClick2 = (e) => {
-    const temp = e.target.innerHTML;
-    window.location.href = "https://cakelaya.com";
-    dispatch(removeProduct({}));
-    dispatch(placeCity({ temp }));
-    setState(temp);
-  };
-
-  const handleChange = () => {
-    setState(undefined);
-    document.body.style.overflow = "hidden";
-  };
-
   const handleClick = () => {
     dispatch(logOut());
-    window.location.href = "https://cakelaya.com";
+    window.location.href = "https://cakelaya-client-v1.vercel.app/";
   };
 
   useEffect(() => {

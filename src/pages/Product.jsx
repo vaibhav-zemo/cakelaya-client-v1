@@ -356,7 +356,7 @@ const Product = () => {
   };
 
   const handleClick = (action) => {
-    if (!user) window.location.href = "https://cakelaya.com/login";
+    if (!user) window.location.href = "https://cakelaya-client-v1.vercel.app/login";
     if (product.title == "Photo Sheet Cake") {
       if (!file) setDisplay(true);
       else {

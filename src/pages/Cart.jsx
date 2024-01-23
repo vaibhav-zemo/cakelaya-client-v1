@@ -338,7 +338,7 @@ const Cart = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get("https://cakelaya.com/api/products");
+        const res = await publicRequest.get("products");
         setProducts(res.data);
         if (city == "Sultanpur") {
           setProducts(
@@ -359,8 +359,8 @@ const Cart = () => {
   }, []);
 
   useEffect(() => {
-    if (!user) window.location.href = "https://cakelaya.com/login";
-    if (!cart.total) window.location.href = "https://cakelaya.com/";
+    if (!user) window.location.href = "https://cakelaya-client-v1.vercel.app/login";
+    if (!cart.total) window.location.href = "https://cakelaya-client-v1.vercel.app/";
   });
 
   const handleClick = (idx, type) => {

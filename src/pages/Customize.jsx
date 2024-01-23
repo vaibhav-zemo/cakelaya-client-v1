@@ -255,7 +255,7 @@ const Customized = () => {
   };
 
   const handleClick = (action) => {
-    if (!user) window.location.href = "https://cakelaya.com/login";
+    if (!user) window.location.href = "https://cakelaya-client-v1.vercel.app/login";
     if (!file) setDisplay(true);
     else {
       dispatch(addProduct({ ...product, quantity, color, size, price, action }));

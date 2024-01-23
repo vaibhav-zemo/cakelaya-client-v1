@@ -259,7 +259,7 @@ const Form = () => {
     const minutes = parseInt(timeParts[1]);
 
     if (hours * 60 + minutes >= 1315 || hours < 8) {
-      setShowMessage(false);
+      setShowMessage(true);
       document.body.style.overflow = "hidden";
     } else {
       setShowMessage(false);
@@ -321,7 +321,7 @@ const Form = () => {
 
   const handleClick = () => {
     document.body.style.overflow = "auto";
-    window.location.href = "https://cakelaya.com";
+    window.location.href = "https://cakelaya-client-v1.vercel.app";
   };
 
   const initPayment = (data) => {
@@ -340,7 +340,7 @@ const Form = () => {
             response
           );
           onHandle();
-          window.location.href = "https://cakelaya.com/myorders"
+          window.location.href = "https://cakelaya-client-v1.vercel.app/myorders"
         } catch (error) {
           console.log("Error", error);
         }
