@@ -345,6 +345,10 @@ const Form = () => {
           console.log("Error", error);
         }
       },
+      prefill: {
+        email: user.email,
+        contact: "+91" + number,
+      },
       theme: {
         color: "#3399cc",
       },
