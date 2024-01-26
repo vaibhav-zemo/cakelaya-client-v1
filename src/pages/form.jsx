@@ -259,7 +259,7 @@ const Form = () => {
     const minutes = parseInt(timeParts[1]);
 
     if (hours * 60 + minutes >= 1315 || hours < 8) {
-      setShowMessage(false);
+      setShowMessage(true);
       document.body.style.overflow = "hidden";
     } else {
       setShowMessage(false);
