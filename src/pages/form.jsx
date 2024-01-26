@@ -259,7 +259,7 @@ const Form = () => {
     const minutes = parseInt(timeParts[1]);
 
     if (hours * 60 + minutes >= 1315 || hours < 8) {
-      setShowMessage(true);
+      setShowMessage(false);
       document.body.style.overflow = "hidden";
     } else {
       setShowMessage(false);
@@ -321,26 +321,53 @@ const Form = () => {
 
   const handleClick = () => {
     document.body.style.overflow = "auto";
-    window.location.href = "https://cakelaya-client-v1.vercel.app";
+    window.location.href = process.env.REACT_APP_BASE_URL;
   };
 
-  const initPayment = (data) => {
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  const initPayment = async (data) => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+    const { amount, id: order_id, currency } = data;
+
     const options = {
       key: process.env.REACT_APP_RAZORPAY_KEY_ID,
-      amount: data.amount,
-      currency: data.currency,
+      amount: amount,
+      currency: currency,
       name: "Cakelaya",
       description: "Cakeलाया ? is a start-up based on delivering cakes",
       image: "images/Mainlogo.png",
-      // order_id: data.id,
+      order_id: order_id,
       handler: async (response) => {
         try {
-          const { data } = await publicRequest.post(
-            "razorpay/verify",
-            response
-          );
+          const { data } = await publicRequest.post("razorpay/verify", {
+            order_id: order_id,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          });
+
           onHandle();
-          window.location.href = "https://cakelaya-client-v1.vercel.app/myorders"
+          window.location.href = process.env.REACT_APP_BASE_URL + "/myorders";
         } catch (error) {
           console.log("Error", error);
         }

@@ -180,7 +180,7 @@ export default function Header() {
 
   const handleClick = () => {
     dispatch(logOut());
-    window.location.href = "https://cakelaya-client-v1.vercel.app/";
+    window.location.href = process.env.REACT_APP_BASE_URL;
   };
 
   useEffect(() => {

@@ -33,14 +33,14 @@ const cartSlice = createSlice({
         ) {
           state.products[i].quantity += action.payload.quantity;
           state.total += Number(action.payload.price * action.payload.quantity);
-          if(action.payload.action=="Buy") window.location.href = "https://cakelaya-client-v1.vercel.app/cart";
+          if(action.payload.action=="Buy") window.location.href = process.env.REACT_APP_BASE_URL + "/cart";
           return;
         }
       }
       state.quantity += 1;
       state.products.push(action.payload);
       state.total += Number(action.payload.price * action.payload.quantity);
-      if(action.payload.action=="Buy") window.location.href = "https://cakelaya-client-v1.vercel.app/cart";
+      if(action.payload.action=="Buy") window.location.href = process.env.REACT_APP_BASE_URL + "/cart";
     },
     addAddon: (state, action) => {
       let flag = action.payload.category == "Chaats and Juices" ? 1 : 0;

@@ -359,8 +359,8 @@ const Cart = () => {
   }, []);
 
   useEffect(() => {
-    if (!user) window.location.href = "https://cakelaya-client-v1.vercel.app/login";
-    if (!cart.total) window.location.href = "https://cakelaya-client-v1.vercel.app/";
+    if (!user) window.location.href = process.env.REACT_APP_BASE_URL + "/login";
+    if (!cart.total) window.location.href = process.env.REACT_APP_BASE_URL;
   });
 
   const handleClick = (idx, type) => {
