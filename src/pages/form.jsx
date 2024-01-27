@@ -268,55 +268,65 @@ const Form = () => {
   }, 500);
 
   const onHandle = async () => {
-    let add =
-      address +
-      ", " +
-      landmark +
-      ", " +
-      city +
-      ", " +
-      state +
-      ", " +
-      country +
-      ", " +
-      pincode;
+    try {
+      let add =
+        address +
+        ", " +
+        landmark +
+        ", " +
+        city +
+        ", " +
+        state +
+        ", " +
+        country +
+        ", " +
+        pincode;
 
-    const currentTime = new Date();
-    const LocalTime = currentTime.toLocaleString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    });
-    const currentDate = Date().toLocaleString();
-    const orderTime = currentDate.split(" ");
-    const captureTime =
-      LocalTime + ", " + orderTime[2] + " " + orderTime[1] + " " + orderTime[3];
+      const currentTime = new Date();
+      const LocalTime = currentTime.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      });
+      const currentDate = Date().toLocaleString();
+      const orderTime = currentDate.split(" ");
+      const captureTime =
+        LocalTime +
+        ", " +
+        orderTime[2] +
+        " " +
+        orderTime[1] +
+        " " +
+        orderTime[3];
 
-    const res = await userRequest.post("/orders", {
-      products: cart.products.map((item) => ({
-        productId: item.title,
-        quantity: item.quantity,
-        size: item.size.length == 0 ? "-" : item.size,
-        flavour: item.color.length == 0 ? "-" : item.color,
-        amount: Number(item.price),
-        img: item.img,
-      })),
-      amount: cart.total,
-      cart: cart,
-      time: time,
-      number: number,
-      address: add,
-      cakeName: cakename,
-      name: name,
-      occassion: occassion,
-      userId: userId,
-      orderTime: String(captureTime),
-    });
+      const res = await userRequest.post("/orders", {
+        products: cart.products.map((item) => ({
+          productId: item.title,
+          quantity: item.quantity,
+          size: item.size.length == 0 ? "-" : item.size,
+          flavour: item.color.length == 0 ? "-" : item.color,
+          amount: Number(item.price),
+          img: item.img,
+        })),
+        amount: cart.total,
+        cart: cart,
+        time: time,
+        number: number,
+        address: add,
+        cakeName: cakename,
+        name: name,
+        occassion: occassion,
+        userId: userId,
+        orderTime: String(captureTime),
+      });
 
-    const orderId = res.data._id;
+      const orderId = res.data._id;
 
-    dispatch(createOrder({ orderId }));
-    dispatch(removeProduct({}));
+      dispatch(createOrder({ orderId }));
+      dispatch(removeProduct({}));
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const handleClick = () => {
@@ -366,7 +376,7 @@ const Form = () => {
             razorpay_signature: response.razorpay_signature,
           });
 
-          onHandle();
+          await onHandle();
           window.location.href = process.env.REACT_APP_BASE_URL + "/myorders";
         } catch (error) {
           console.log("Error", error);
