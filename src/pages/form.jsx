@@ -259,7 +259,7 @@ const Form = () => {
     const minutes = parseInt(timeParts[1]);
 
     if (hours * 60 + minutes >= 1315 || hours < 8) {
-      setShowMessage(true);
+      setShowMessage(false);
       document.body.style.overflow = "hidden";
     } else {
       setShowMessage(false);
@@ -339,7 +339,7 @@ const Form = () => {
       const script = document.createElement("script");
       script.src = src;
       script.onload = () => {
-        resolve(true);
+        resolve(false);
       };
       script.onerror = () => {
         resolve(false);
@@ -363,8 +363,7 @@ const Form = () => {
       key: process.env.REACT_APP_RAZORPAY_KEY_ID,
       amount: amount,
       currency: currency,
-      name: "Cakelaya",
-      description: "Cakeलाया ? is a start-up based on delivering cakes",
+      name: "ZESTEASE FOODTECH PRIVATE LIMITED",
       image: "images/Mainlogo.png",
       order_id: order_id,
       handler: async (response) => {
@@ -387,7 +386,7 @@ const Form = () => {
         contact: "+91" + number,
       },
       theme: {
-        color: "#3399cc",
+        color: "#ff1616",
       },
     };
     const rzp1 = new window.Razorpay(options);
