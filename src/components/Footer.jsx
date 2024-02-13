@@ -6,6 +6,7 @@ import {
   Twitter,
   WhatsApp,
   LinkedIn,
+  Phone
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -141,6 +142,15 @@ const Footer = () => {
               <Link href="/privacy">Privacy Policy</Link>
             </ListItem>
             <ListItem>
+              <Link href="/return">Return Policy</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="/shipping">Shipping Policy</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="/refund">Refund Policy</Link>
+            </ListItem>
+            <ListItem>
               <Link href="/term">T&C</Link>
             </ListItem>
           </List>
@@ -148,11 +158,11 @@ const Footer = () => {
         <Right>
           <Title>Contact</Title>
           <ContactItem>
-            <Room style={{ marginRight: "10px" }} /> F - 143, F Block, Sector 22, Noida, U.P.
+            <Room style={{ marginRight: "10px" }} /> F - 143, F Block, Sector 22, Noida, U.P. (201301)
           </ContactItem>
-          {/* <ContactItem>
-          <WhatsApp style={{ marginRight: "10px" }} /> +91-6387836907
-        </ContactItem> */}
+          <ContactItem>
+          <Phone style={{ marginRight: "10px" }} /> +91-9999004086
+        </ContactItem>
           <ContactItem>
             <MailOutline style={{ marginRight: "10px" }} />{" "}
             <Link href="mailto:support@cakelaya.com">support@cakelaya.com</Link>
@@ -160,7 +170,8 @@ const Footer = () => {
         </Right>
       </Container>
       <div style={{ width: "100%", textAlign: "center", marginBottom: "10px" }}>
-        Copyright © 2023 ZESTEASE FOODTECH PRIVATE LIMITED®. All rights reserved
+        Copyright© 2024 | ZESTEASE FOODTECH PRIVATE LIMITED® | All
+        Rights Reserved
       </div>
     </>
   );

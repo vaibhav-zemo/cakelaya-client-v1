@@ -88,35 +88,6 @@ const Term = () => {
       <Announcement />
       <Header />
       <Content style={{ border: "none" }}>
-        <Head>Refund and Cancellation</Head>
-        <Context>
-          Currently, the option to cancel your order is not available on our
-          website, so we request everyone to place the order with utmost care!
-          In case, if you want to update your delivery address or change your
-          cake flavour, that can be done by contacting the official email ID
-          mentioned below. For refunds, for requests with a genuine reason, your
-          refund is processed immediately after verification, and the amount is
-          refunded back to your original payment method within 1-2 business
-          days. For any further queries, please feel free to write us at our
-          official mail ID as mentioned below.
-          <p>
-            NOTE: In case of any refunds initiated by users, the amount will be
-            refunded after a standard 5% order value deduction
-          </p>
-        </Context>
-      </Content>
-      <Content style={{ border: "none" }}>
-        <Head>Shipping Policy</Head>
-        <Context>
-          All the cakes are delivered to you by third-party bakery vendors, and
-          the company hold no responsibilities for the same. We are just an
-          online platform which enables local bakers to list on our platform and
-          sell their products online. In case of any issue, you can always email
-          us on our official email ID!
-        </Context>
-      </Content>
-
-      <Content style={{ border: "none" }}>
         <Head>Terms of Use </Head>
         <Context>
           Please read the terms and conditions (“Terms and Conditions”) set out
@@ -404,15 +375,6 @@ const Term = () => {
           enforcement agencies and to ask them to take appropriate action
           whenever such phenomena occur. Additionally, the company will notify
           the police or other competent authority.<br></br>
-        </Context>
-      </Content>
-      <Content style={{ border: "none" }}>
-        <Head>Return Policy</Head>
-        <Context style={{ width: "100%", textAlign: "center" }}>
-          Since food items are perishable in nature, thus once delivered won’t
-          be returned or replaced. In case of product quality issues, you can
-          contact us on our official mail ID as mentioned below to raise a
-          refund query!
         </Context>
       </Content>
       <Footer />

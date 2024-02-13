@@ -364,6 +364,7 @@ const Form = () => {
       amount: amount,
       currency: currency,
       name: "ZESTEASE FOODTECH PRIVATE LIMITED",
+      descripton: "Hello",
       image: "images/Mainlogo.png",
       order_id: order_id,
       handler: async (response) => {

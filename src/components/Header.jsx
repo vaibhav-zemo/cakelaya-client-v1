@@ -126,7 +126,7 @@ const List = styled.ul`
   top: 4.5vh;
   background-color: #fff;
   position: absolute;
-  height: 116px;
+  height: 200px;
   width: 128px;
   display: flex;
   flex-direction: column;
@@ -354,6 +354,42 @@ export default function Header() {
                     }}
                   >
                     Privacy Policy
+                  </MenuItem>
+                </li>
+                <li>
+                  <MenuItem
+                    onClick={() => {
+                      history.push({
+                        pathname: "/return",
+                        state: { prevPath: location.pathname },
+                      });
+                    }}
+                  >
+                    Return Policy
+                  </MenuItem>
+                </li>
+                <li>
+                  <MenuItem
+                    onClick={() => {
+                      history.push({
+                        pathname: "/shipping",
+                        state: { prevPath: location.pathname },
+                      });
+                    }}
+                  >
+                    Shipping Policy
+                  </MenuItem>
+                </li>
+                <li>
+                  <MenuItem
+                    onClick={() => {
+                      history.push({
+                        pathname: "/refund",
+                        state: { prevPath: location.pathname },
+                      });
+                    }}
+                  >
+                    Refund Policy
                   </MenuItem>
                 </li>
                 <li>

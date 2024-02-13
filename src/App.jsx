@@ -23,6 +23,9 @@ import Privacy from "./pages/Privacy";
 import Profile from "./pages/Profile";
 import Cancel from "./pages/Cancel";
 import Term from "./pages/Term";
+import Refund from './pages/Refund'
+import Return from './pages/Return'
+import Shipping from './pages/Shipping'
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -80,6 +83,15 @@ const App = () => {
         </Route>
         <Route path="/term">
           <Term />
+        </Route>
+        <Route path="/refund">
+          <Refund />
+        </Route>
+        <Route path="/return">
+          <Return />
+        </Route>
+        <Route path="/shipping">
+          <Shipping />
         </Route>
       </Switch>
     </Router>
