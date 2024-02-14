@@ -105,7 +105,7 @@ const Shipping = () => {
             }}
           >
             <li>
-              <b>Shipping Timeline</b>
+              <b>Shipping Timeline</b> <br></br>
               We provide FREE 90 Minutes instant delivery to our customers!
             </li>
             <li>
