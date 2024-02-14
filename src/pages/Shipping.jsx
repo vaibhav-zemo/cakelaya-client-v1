@@ -105,6 +105,10 @@ const Shipping = () => {
             }}
           >
             <li>
+              <b>Shipping Timeline</b>
+              We provide FREE 90 Minutes instant delivery to our customers!
+            </li>
+            <li>
               <b>Third-Party Bakery Vendors</b> <br></br>
               All cakes available on our website are delivered to you by
               third-party bakery partners. As such, Cakeलाया ? holds no
