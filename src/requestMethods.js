@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://cakelaya-api-v1-production.up.railway.app/api/";
+const BASE_URL = "https://cakelaya-web-api-production.up.railway.app/api/";
 // const BASE_URL = "http://localhost:5000/api/";
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
